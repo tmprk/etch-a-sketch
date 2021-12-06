@@ -1,30 +1,46 @@
-let columnAndRow = 16
-let container = document.querySelector('.grid')
-let value = document.querySelector('#value')
-let range = document.querySelector('#myRange')
+let squares = null
+let container = document.querySelector('#grid')
 
-for (let row = 0; row < 16; row++) {
-    for (let col = 0; col < 16; col++) {
-    let newElement = document.createElement('div')
-        newElement.classList.add('square')
-        container.appendChild(newElement)
+function addSquares(dimension) {
+    container.innerHTML = ''
+    for (let row = 0; row < dimension; row++) {
+        for (let col = 0; col < dimension; col++) {
+            let newElement = document.createElement('div')
+            newElement.classList.add('square')
+            container.appendChild(newElement)
+        }
     }
 }
 
-let squares = document.querySelectorAll('.square')
+function setListeners() {
+    squares = document.querySelectorAll('.square')
+    squares.forEach((square) => {
+        square.addEventListener('mouseenter', () => {
+            console.log(square.classList)
+            square.classList.add('drawn')
+        });
+    });
+}
+
 let btn = document.querySelector('.btn')
 let drawn = document.querySelectorAll('.drawn')
 
 btn.addEventListener('click', () => {
+    let input = prompt("Select a new number of squares per side.")
+    if (input === null) {
+        return
+    }
+
     squares.forEach((item) => {
         item.classList.remove('drawn')
-        console.log('hi')
     });
+    
+    document.getElementById("grid").style.gridTemplateColumns = `repeat(${input}, 1fr)`;
+    document.getElementById("grid").style.gridTemplateRows = `repeat(${input}, 1fr)`;
+    
+    addSquares(input);
+    setListeners();
 })
 
-squares.forEach((square) => {
-    square.addEventListener('mouseenter', () => {
-        console.log(square.classList)
-        square.classList.add('drawn')
-    });
-});
+addSquares(16);
+setListeners();
