@@ -20,7 +20,7 @@ function setListeners() {
         square.addEventListener('mouseenter', () => {
             switch (setting) {
                 case 'normal':
-                    square.style.backgroundColor = "rgb(85, 76, 63)";
+                    square.style.backgroundColor = "#735D78";
                     break
                 case 'rainbow':
                     var randomColor = Math.floor(Math.random() * 16777215).toString(16);

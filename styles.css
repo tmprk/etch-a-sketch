@@ -8,24 +8,26 @@
 body {
     width: 100%;
     height: 100%;
-    background-color:rgb(61, 61, 61);
+    background-color:#D1B3C4;
     display: flex;
     flex-direction: column;
 }
 
 .title {
     text-align: center;
-    font-size: 24px;
-    padding: 18px;
-    color: white;
+    font-size: 36px;
+    font-weight: 700;
+    padding: 16px;
+    color: #735D78;
 }
 
 .container {
     display: flex;
-    background-color: rgb(61, 61, 61);
-    justify-content: space-evenly;
+    background-color: #D1B3C4;
+    justify-content: center;
     align-items: flex-start;
     flex: 1;
+    gap: 24px;
 }
 
 #control {
@@ -33,15 +35,27 @@ body {
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
-    background-color: red;
+    background-color: #B392AC;
     gap: 8px;
     padding: 8px;
     /* height: auto; */
+
+    border-radius: 8px;
 }
 
 .btn {
-    background-color: white;
+    background-color: #735D78;
+    color: #E8C2CA;
     width: 226px;
+    padding: 12px 8px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn:hover {
+    cursor: pointer;
 }
 
 #grid {
@@ -58,8 +72,8 @@ body {
 }
 
 .square {
-    background-color: papayawhip;
-    outline: solid 1px rgb(221, 192, 146);
+    background-color: #B392AC;
+    outline: solid 1px #735D78;
     transition: background 150ms;
 }
 
@@ -91,6 +105,8 @@ input {
     .container {
         flex-wrap: wrap;
         background-color: rebeccapurple;
+        gap: 18px;
+        padding: 16px;
     }
 
     #grid {
@@ -102,6 +118,6 @@ input {
         flex-wrap: nowrap;
         flex-direction: column;
         justify-content: flex-start;
-        width: 50%;
+        /* width:  */
     }
 }
