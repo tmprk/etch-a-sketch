@@ -1,5 +1,6 @@
 let squares = null
 let container = document.querySelector('#grid')
+let setting = 'normal';
 
 function addSquares(dimension) {
     container.innerHTML = ''
@@ -15,9 +16,27 @@ function addSquares(dimension) {
 function setListeners() {
     squares = document.querySelectorAll('.square')
     squares.forEach((square) => {
+        square.brightness = 1;
         square.addEventListener('mouseenter', () => {
-            console.log(square.classList)
-            square.classList.add('drawn')
+            switch (setting) {
+                case 'normal':
+                    square.style.backgroundColor = "rgb(85, 76, 63)";
+                    break
+                case 'rainbow':
+                    var randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                    square.style.backgroundColor = "#" + randomColor;
+                    break
+                case 'darker':
+                    console.log('brightness', square.brightness)
+                    square.brightness -= 0.1;
+                    square.style.filter = `brightness(${square.brightness})`
+                    break
+                case 'lighten':
+                    console.log('brightness', square.brightness)
+                    square.brightness += 0.1;
+                    square.style.filter = `brightness(${square.brightness})`
+                    break
+            }
         });
     });
 }
@@ -41,6 +60,11 @@ btn.addEventListener('click', () => {
     addSquares(input);
     setListeners();
 })
+
+function handleClick(myRadio) {
+    setting = myRadio.value;
+    // alert('New value: ' + myRadio.value);
+}
 
 addSquares(16);
 setListeners();
