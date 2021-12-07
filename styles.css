@@ -65,10 +65,12 @@ body {
     grid-column-gap: 1px;
     grid-row-gap: 1px;
 
-    background-color: purple;
+    /* background-color: purple; */
     width: 600px;
     height: 600px;
     flex-shrink: 0;
+    border: 8px #947c8f solid;
+    border-radius: 5px;
 }
 
 .square {
@@ -79,10 +81,6 @@ body {
 
 .drawn {
     background-color: rgb(85, 76, 63);
-}
-
-.checkboxes {
-    /* height: 300px; */
 }
 
 .checkboxes label {
@@ -97,14 +95,14 @@ body {
     vertical-align: middle;
 }
 
-input {
+input[type="radio"] {
     margin-left: auto;
 }
 
 @media only screen and (max-width: 850px) {
     .container {
         flex-wrap: wrap;
-        background-color: rebeccapurple;
+        /* background-color: rebeccapurple; */
         gap: 18px;
         padding: 16px;
     }
